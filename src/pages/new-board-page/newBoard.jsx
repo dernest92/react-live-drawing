@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../contextProvider";
 import { Link, useHistory } from "react-router-dom";
+import apiConnection from "../../apiConnection";
 
 const NewBoard = () => {
   const history = useHistory();
-  const addBoard = () => {
-    socket.emit("newBoard", boardName);
-    history.push(`/drawing/${boardName}`);
+  const addBoard = async () => {
+    const slug = await apiConnection.createBoard(boardName);
+    history.push(`/board/${slug}`);
   };
   const { socket } = useContext(Context);
-  useEffect(() => {}, [socket]);
-
   const [boardName, setBoardName] = useState("");
+
   return (
     <div className="card p10">
       <h2 className="card-title">New Board</h2>

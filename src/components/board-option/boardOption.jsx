@@ -5,7 +5,7 @@ import "./boardOption.scss";
 
 const BoardOption = ({ isNew, linkTo, boardName }) => {
   return (
-    <Link to={`/${linkTo}`} className="board-option">
+    <Link to={linkTo} className="board-option">
       <div className="board-icon">
         {isNew ? <FaPlusSquare color="#2ecc71" /> : <FaEdit color="#fcfcfc" />}
       </div>
