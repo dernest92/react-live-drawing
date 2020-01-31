@@ -1,11 +1,12 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 const Drawing = () => {
+  const { boardId } = useParams();
   return (
     <div>
-      <h2>Drawing</h2>
       <div className="card">
-        <h2 className="card-title">Choose a Board</h2>
+        <h2 className="card-title">{boardId}</h2>
       </div>
     </div>
   );
