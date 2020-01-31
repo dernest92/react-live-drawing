@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../../contextProvider";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import apiConnection from "../../apiConnection";
 
@@ -9,7 +8,6 @@ const NewBoard = () => {
     const slug = await apiConnection.createBoard(boardName);
     history.push(`/board/${slug}`);
   };
-  const { socket } = useContext(Context);
   const [boardName, setBoardName] = useState("");
 
   return (
